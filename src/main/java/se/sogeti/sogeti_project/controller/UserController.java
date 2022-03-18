@@ -10,7 +10,7 @@ import se.sogeti.sogeti_project.service.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/event/api/v1/users")
+@RequestMapping(path = "/event/api/v1/users/")
 @CrossOrigin("*")
 public class UserController {
 
@@ -24,25 +24,29 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User createForm){
+    public ResponseEntity<User> create(@RequestBody User createForm) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.create(createForm));
     }
-@GetMapping
+
+    @GetMapping
     public ResponseEntity<List<User>> findAllUsers() {
         return ResponseEntity.ok(userService.findAllUsers());
     }
-@DeleteMapping("{id}")
-public ResponseEntity<String> delete(@PathVariable("id") Integer id){
-        userService.delete(id);
-        return new ResponseEntity<String>("User deleted successfully",HttpStatus.NO_CONTENT);
-}
-@GetMapping("{id}")
-public ResponseEntity<User> findUserById( @PathVariable("id") Integer id){
-        return ResponseEntity.ok(userService.findUserById(id));
-}
-@PutMapping("{id}")
-public ResponseEntity<User> updateUser( @PathVariable("id") Integer id, @RequestBody User user){
-return new ResponseEntity<User>(userService.updateUser(user,id),HttpStatus.OK);
 
-}
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") Integer userId) {
+        userService.delete(userId);
+        return new ResponseEntity<String>("User deleted successfully", HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<User> findUserById(@PathVariable("id") Integer id) {
+        return ResponseEntity.ok(userService.findUserById(id));
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<User> updateUser(@PathVariable("id") Integer id, @RequestBody User user) {
+        return new ResponseEntity<User>(userService.updateUser(user, id), HttpStatus.OK);
+
+    }
 }

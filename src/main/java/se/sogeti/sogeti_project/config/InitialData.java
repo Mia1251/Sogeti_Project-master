@@ -14,11 +14,11 @@ UserRepository userRepository;
     @Override
     public void run(String... args) throws Exception {
 
-        userRepository.save(new User("Abbe","Mohamud","m.abbe@sogeti.se","abb","jasgq"));
-        userRepository.save(new User("Jaime","Torrealba","t.jaime@sogeti.se","jai","dffdgg"));
-        userRepository.save(new User("Laurita","Owanta","l.owanta@sogeti.se","lol","ghdsfhy"));
-        userRepository.save(new User("Maria","Svensson","m.svensson@sogeti.se","mia","fhehgue"));
-        userRepository.save(new User("Charles","Rudahusha","crud@sogeti.se","crud","gsggs"));
+        userRepository.save(new User("Abbe","Mohamud","m.abbe@sogeti.se", "CSO", 2 ,"abb","jasgq"));
+        userRepository.save(new User("Jaime","Torrealba Olguin","t.jaime@sogeti.se", "CFO", 9 ,"jai","dffdgg"));
+        userRepository.save(new User("Laurita","Owanta","l.owanta@sogeti.se", "CPM", 5 ,"lol","ghdsfhy"));
+        userRepository.save(new User("Maria","Svensson","m.svensson@sogeti.se", "COO", 3 ,"mia","fhehgue"));
+        userRepository.save(new User("Charles","Rudahusha","crud@sogeti.se", "CPM", 1 ,"crud","gsggs"));
 
     }
 }
